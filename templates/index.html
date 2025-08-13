@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý chi tiêu</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Quản lý chi tiêu</h1>
+      <p class="muted">Đặt mục tiêu • Ghi chi • Theo dõi real‑time</p>
+    </header>
+
+    <section class="cards">
+      <!-- Mục tiêu tháng -->
+      <div class="card">
+        <h3>Mục tiêu tháng (VNĐ)</h3>
+        <div class="row">
+          <label for="monthlyGoal" class="sr-only">Mục tiêu tháng</label>
+          <input id="monthlyGoal" type="text" placeholder="VD: 10,000,000"/>
+          <button id="saveMonthly">Lưu</button>
+        </div>
+        <p class="muted">Còn lại tháng này: <strong id="budgetLeftMonth">0</strong></p>
+        <p class="muted">Gợi ý chi/ngày: <strong id="dailySuggestion">0</strong></p>
+      </div>
+
+      <!-- Mục tiêu năm -->
+      <div class="card">
+        <h3>Mục tiêu năm (VNĐ)</h3>
+        <div class="row">
+          <label for="yearlyGoal" class="sr-only">Mục tiêu năm</label>
+          <input id="yearlyGoal" type="text" placeholder=""/>
+          <button id="saveYearly">Lưu</button>
+        </div>
+        <p class="muted">Năm hiện tại: <strong id="thisYear">0</strong></p>
+        <p class="muted">Còn lại năm nay: <strong id="budgetLeftYear">0</strong></p>
+        <p class="muted">Gợi ý chi/tháng: <strong id="budgetLeftYear">0</strong></p>
+      </div>
+
+      <!-- Thêm khoản chi -->
+      <div class="card">
+        <h3>Thêm khoản chi</h3>
+
+        <form class="form-grid" onsubmit="return false;">
+          <div class="field">
+            <label for="category-spending">Chi tiêu cái gì?</label>
+            <input id="category-spending" placeholder="VD: Ăn trưa, Xăng xe, Siêu thị" required/>
+          </div>
+
+          <div class="field">
+            <label for="date-spending">Khi nào?</label>
+            <input id="date-spending" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="amount-spending">Bao nhiêu tiền? (VNĐ)</label>
+            <input id="amount-spending" type="text" inputmode="numeric" min="0" step="1000" placeholder="VD: 120,000" required/>
+          </div>
+
+          <div class="field span-2">
+            <label for="note-spending">Ghi chú (tuỳ chọn)</label>
+            <input id="note-spending" placeholder="VD: Thanh toán bằng thẻ, cho 2 người..."/>
+          </div>
+
+          <div class="actions">
+            <button id="addExpense" type="button">+ Thêm</button>
+          </div>
+        </form>
+
+        <p class="muted">Hôm nay: <strong id="todayTotal">0</strong></p>
+        <p class="muted">Tháng này: <strong id="monthTotal">0</strong></p>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="card">
+        <h3>Chi tiêu theo ngày (tháng hiện tại)</h3>
+        <canvas id="dayChart"></canvas>
+      </div>
+      <div class="card">
+        <h3>Chi tiêu theo danh mục (tháng hiện tại)</h3>
+        <canvas id="catChart"></canvas>
+      </div>
+    </section>
+
+    <section class="table-wrap card">
+      <h3>Giao dịch gần đây</h3>
+      <table id="expenseTable">
+        <thead>
+          <tr>
+            <th>Ngày</th>
+            <th>Số tiền</th>
+            <th>Danh mục</th>
+            <th>Ghi chú</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- gắn JS  -->
+  <script src="/static/js/goal-month-year.js"></script>
+  <script src="/static/js/spending.js"></script>
+</body>
+</html>
