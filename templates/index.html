@@ -10,10 +10,11 @@
   <div class="container">
     <header>
       <h1>Quản lý chi tiêu</h1>
-      <p class="muted">Đặt mục tiêu • Ghi chi • Theo dõi real‑time</p>
+      <p class="muted">Đặt mục tiêu • Ghi chi • Theo dõi real-time</p>
     </header>
 
-    <section class="cards">
+    <!-- Hàng 1 -->
+    <section class="cards-row">
       <!-- Mục tiêu tháng -->
       <div class="card">
         <h3>Mục tiêu tháng (VNĐ)</h3>
@@ -36,13 +37,35 @@
         </div>
         <p class="muted">Năm hiện tại: <strong id="thisYear">0</strong></p>
         <p class="muted">Còn lại năm nay: <strong id="budgetLeftYear">0</strong></p>
-        <p class="muted">Gợi ý chi/tháng: <strong id="budgetLeftYear">0</strong></p>
+        <p class="muted">Gợi ý chi/tháng: <strong id="monthlySuggestion">0</strong></p>
       </div>
+
+      <!-- Giao dịch gần đây -->
+      <div class="card">
+        <h3>Giao dịch gần đây</h3>
+        <div class="table-wrap">
+          <table id="recentTable">
+            <thead>
+              <tr>
+                <th>Ngày</th>
+                <th>Tiêu đề</th>
+                <th>Số tiền (VNĐ)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- dữ liệu sẽ render bằng JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination" id="recentPagination">
+          <!-- nút trang sẽ render ở đây -->
+        </div>
+      </div>
+
 
       <!-- Thêm khoản chi -->
       <div class="card">
         <h3>Thêm khoản chi</h3>
-
         <form class="form-grid" onsubmit="return false;">
           <div class="field">
             <label for="category-spending">Chi tiêu cái gì?</label>
@@ -68,42 +91,40 @@
             <button id="addExpense" type="button">+ Thêm</button>
           </div>
         </form>
-
         <p class="muted">Hôm nay: <strong id="todayTotal">0</strong></p>
         <p class="muted">Tháng này: <strong id="monthTotal">0</strong></p>
       </div>
     </section>
 
-    <section class="charts">
+    <!-- Hàng 2 -->
+    <section class="charts-row">
       <div class="card">
         <h3>Chi tiêu theo ngày (tháng hiện tại)</h3>
         <canvas id="dayChart"></canvas>
       </div>
+
+      <div class="card">
+        <h3>Chi tiêu theo tháng (năm hiện tại)</h3>
+        <canvas id="monthChart"></canvas>
+      </div>
+
       <div class="card">
         <h3>Chi tiêu theo danh mục (tháng hiện tại)</h3>
-        <canvas id="catChart"></canvas>
+        <div class="chart-wrapper">
+          <canvas id="catChart"></canvas>
+        </div>
       </div>
-    </section>
 
-    <section class="table-wrap card">
-      <h3>Giao dịch gần đây</h3>
-      <table id="expenseTable">
-        <thead>
-          <tr>
-            <th>Ngày</th>
-            <th>Số tiền</th>
-            <th>Danh mục</th>
-            <th>Ghi chú</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
     </section>
   </div>
 
-  <!-- gắn JS  -->
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/static/js/goal-month-year.js"></script>
   <script src="/static/js/spending.js"></script>
+  <script src="/static/js/spend-per-day.js"></script>
+  <script src="/static/js/spend-per-month.js"></script>
+  <script src="/static/js/spend-catalog.js"></script>
+  <script src="/static/js/spend-trans.js"></script>
 </body>
 </html>

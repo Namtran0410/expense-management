@@ -1,4 +1,4 @@
-[
+data= [
   [
     {
       "title": "Ăn sáng",
@@ -180,12 +180,25 @@
       "date": "2025-08-15",
       "money": "35000"
     }
-  ],
-  [
-    {
-      "title": "Mua quần áo",
-      "date": "2025-08-14",
-      "money": "500000"
-    }
   ]
 ]
+
+catalog= ['ăn', 'uống', 'nhà', 'dịch vụ', 'khác', 'điện', 'nước', 'internet']
+catadict= {}
+k = []
+for i in data:
+    title = i[0]['title']
+    title= title.lower()
+    titleList= title.split(' ')
+
+    for t in titleList:
+        if t in catalog:
+            value= i[0]['money']
+            if t in catadict:
+                catadict[t] += int(value)
+            if t not in catadict:
+                catadict[t] = int(value)
+
+k.append(catadict)
+print(k)
+

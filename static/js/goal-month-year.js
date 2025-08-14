@@ -6,7 +6,8 @@ let day = now.getDate(); // 1..31
 // Biến hiển thị
 let remainMoney = '';
 let suggestSpend = '';
-let remainMoneyYear=''
+let remainMoneyYear='';
+let suggestSpendYear= '';
 const parseMoney = (s) => {
   const n = (s || '').toString().replace(/[^\d-]/g, '');
   return n ? parseInt(n, 10) : 0;
@@ -60,11 +61,16 @@ async function computeAndRender() {
   const yearlyRemain= yearlyGoal- spendingYearValue
   remainMoneyYear = formatVND(yearlyRemain);
 
+  // suggest spend trong năm 
+  const remainMonth= 12- month
+  const perMonth= Math.floor(yearlyRemain / remainMonth)
+  suggestSpendYear= formatVND(perMonth)
 
   // Render
   document.querySelector('#budgetLeftMonth').textContent = remainMoney;
   document.querySelector('#dailySuggestion').textContent = suggestSpend;
   document.querySelector('#budgetLeftYear').textContent = remainMoneyYear;
+  document.querySelector('#monthlySuggestion').textContent = suggestSpendYear;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -137,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       headers: { 'Content-Type': 'application/json' }
     });
     const yJson = await yRes.json();
-    document.getElementById('yearlyGoal').value = yJson[1]?.value || '';
+    document.getElementById('yearlyGoal').value = yJson[0]?.value || '';
 
     // Tính & hiển thị lần đầu
     await computeAndRender();
@@ -164,4 +170,5 @@ document.getElementById('addExpense').addEventListener('click', async () => {
       'Content-Type': 'application/json'
     }
   });
+  await computeAndRender();
 });
