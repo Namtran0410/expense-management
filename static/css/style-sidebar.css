@@ -11,7 +11,7 @@
 
 .sidebar {
   width: 220px;
-  background: var(--card);
+  background: #e8f0fe; /* xanh nhạt */
   border-right: 1px solid var(--line);
   height: 100vh;
   display: flex;
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
+  padding: 14px 20px; /* tăng từ 10px lên 14px để dãn chữ theo trục y */
   font-size: 15px;
   color: var(--text);
   font-weight: 500;

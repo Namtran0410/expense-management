@@ -1,0 +1,106 @@
+[
+  {
+    "invest_kind": "salary",
+    "invest_name": "Lương",
+    "invest_start_date": "2025-09-05",
+    "invest_spend": "0",
+    "invest_price_now": "23000000",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "salary",
+    "invest_name": "Lương",
+    "invest_start_date": "2025-10-05",
+    "invest_spend": "0",
+    "invest_price_now": "23000000",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "salary",
+    "invest_name": "Lương",
+    "invest_start_date": "2025-11-05",
+    "invest_spend": "0",
+    "invest_price_now": "25000000",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "salary",
+    "invest_name": "Lương",
+    "invest_start_date": "2025-12-05",
+    "invest_spend": "0",
+    "invest_price_now": "25000000",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "living expenses",
+    "invest_name": "Tiền sinh hoạt",
+    "invest_start_date": "2025-09-05",
+    "invest_spend": "10000000",
+    "invest_price_now": "0",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "living expenses",
+    "invest_name": "Tiền sinh hoạt",
+    "invest_start_date": "2025-10-05",
+    "invest_spend": "10000000",
+    "invest_price_now": "0",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "living expenses",
+    "invest_name": "Tiền sinh hoạt",
+    "invest_start_date": "2025-11-05",
+    "invest_spend": "10000000",
+    "invest_price_now": "0",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "living expenses",
+    "invest_name": "Tiền sinh hoạt",
+    "invest_start_date": "2026-01-05",
+    "invest_spend": "10000000",
+    "invest_price_now": "0",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "loan",
+    "invest_name": "Tiền sinh hoạt",
+    "invest_start_date": "2025-08-21",
+    "invest_spend": "10000000",
+    "invest_price_now": "0",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "loan",
+    "invest_name": "cho vay",
+    "invest_start_date": "2025-08-21",
+    "invest_spend": "",
+    "invest_price_now": "2000000",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "real-estate",
+    "invest_name": "góp mua nhà",
+    "invest_start_date": "2025-08-21",
+    "invest_spend": "20000000",
+    "invest_price_now": "",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "capital",
+    "invest_name": "góp vốn cà phê",
+    "invest_start_date": "2025-08-30",
+    "invest_spend": "20000000",
+    "invest_price_now": "",
+    "invest_note": ""
+  },
+  {
+    "invest_kind": "gold",
+    "invest_name": "mua vàng",
+    "invest_start_date": "2025-09-02",
+    "invest_spend": "20000000",
+    "invest_price_now": "",
+    "invest_note": ""
+  }
+]

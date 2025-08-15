@@ -37,7 +37,14 @@ body {
   padding-right: 16px;
   box-sizing: border-box;
 }
+.container {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
 
+.container.fade-out {
+    opacity: 0;
+}
 header {
   margin-bottom: 18px;
 }

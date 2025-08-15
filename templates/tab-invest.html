@@ -6,7 +6,6 @@
   <title>Quản lý đầu tư</title>
   <link rel="stylesheet" href="/static/css/style-sidebar.css">
   <link rel="stylesheet" href="/static/css/style-invest.css">
-
 </head>
 <body>
   <div class="layout">
@@ -34,53 +33,66 @@
         </div>
       </section>
 
-      <!-- Form thêm khoản đầu tư -->
-      <section class="card">
-        <h3>Thêm khoản đầu tư</h3>
-        <form class="form-grid" id="form-investment" onsubmit="return false;">
-          <div class="field">
-            <label for="investment-type">Loại hình đầu tư</label>
-            <select id="investment-type" name="type" required>
-              <option value="">-- Chọn loại --</option>
-              <option value="real-estate">Nhà đất</option>
-              <option value="loan">Cho vay</option>
-              <option value="stock">Đầu cơ chứng khoán</option>
-              <option value="capital">Góp vốn</option>
-              <option value="gold">Mua vàng</option>
-              <option value="other">Khác</option>
-            </select>
-          </div>
+      <!-- Form + Biểu đồ trong cùng 1 hàng -->
+      <div class="form-chart-row">
+        <!-- Form thêm khoản đầu tư -->
+        <section class="card form-invest">
+          <h3>Thêm khoản đầu tư</h3>
+          <form class="form-grid" id="form-investment" onsubmit="return false;">
+            <div class="field">
+              <label for="investment-type">Loại hình đầu tư</label>
+              <select id="investment-type" name="type" required>
+                <option value="">-- Chọn loại --</option>
+                <option value="salary">Lương hàng tháng (NET)</option>
+                <option value="living expenses">Tiền sinh hoạt</option>
+                <option value="real-estate">Nhà đất</option>
+                <option value="loan">Cho vay</option>
+                <option value="stock">Đầu cơ chứng khoán</option>
+                <option value="capital">Góp vốn</option>
+                <option value="gold">Mua vàng</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
 
-          <div class="field">
-            <label for="investment-name">Tên khoản đầu tư</label>
-            <input id="investment-name" name="name" placeholder="VD: Mua căn hộ Q7" required/>
-          </div>
+            <div class="field">
+              <label for="investment-name">Tên khoản đầu tư</label>
+              <input id="investment-name" name="name" placeholder="VD: Mua căn hộ Q7" required/>
+            </div>
 
-          <div class="field">
-            <label for="investment-start">Ngày bắt đầu</label>
-            <input id="investment-start" name="start_date" type="date" required/>
-          </div>
+            <div class="field">
+              <label for="investment-start">Ngày bắt đầu</label>
+              <input id="investment-start" name="start_date" type="date" required/>
+            </div>
 
-          <div class="field">
-            <label for="investment-amount">Số tiền đầu tư (VNĐ)</label>
-            <input id="investment-amount" name="amount" type="number" min="0" step="1000" required/>
-          </div>
+            <div class="field">
+              <label for="investment-amount">Tiền ra (Đầu tư)</label>
+              <input id="investment-amount" name="amount" type="number" min="0" step="1000" required/>
+            </div>
 
-          <div class="field">
-            <label for="investment-current">Giá trị hiện tại (VNĐ)</label>
-            <input id="investment-current" name="current_value" type="number" min="0" step="1000" required/>
-          </div>
+            <div class="field">
+              <label for="investment-current">Tiền vào (Thu lại)</label>
+              <input id="investment-current" name="current_value" type="number" min="0" step="1000" required/>
+            </div>
 
-          <div class="field span-2">
-            <label for="investment-note">Ghi chú</label>
-            <input id="investment-note" name="note" placeholder="VD: Lãi suất 8%/năm, góp vốn 20%"/>
-          </div>
+            <div class="field span-2">
+              <label for="investment-note">Ghi chú</label>
+              <input id="investment-note" name="note" placeholder="VD: Lãi suất 8%/năm, góp vốn 20%"/>
+            </div>
 
-          <div class="actions span-2">
-            <button type="button" id="addInvestment" class="btn-primary">+ Thêm</button>
+            <div class="actions span-2">
+              <button type="button" id="addInvestment" class="btn-primary">+ Thêm</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Biểu đồ -->
+        <section class="card chart-invest">
+          <h3>Phân bổ danh mục đầu tư</h3>
+          <div class="chart-wrapper">
+            <canvas id="investmentChart"></canvas>
           </div>
-        </form>
-      </section>
+        </section>
+      </div>
 
       <!-- Bảng danh sách đầu tư -->
       <section class="card">
@@ -104,20 +116,15 @@
           </table>
         </div>
       </section>
-
-      <!-- Biểu đồ -->
-      <section class="card">
-        <h3>Phân bổ danh mục đầu tư</h3>
-        <div class="chart-wrapper">
-          <canvas id="investmentChart"></canvas>
-        </div>
-      </section>
     </div>
   </div>
 
-  <!-- JS riêng cho tab Đầu tư -->
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/js/invest/invest-load-list.js"></script>
+  <script src="/static/js/invest/invest-load-chart.js"></script>
   <script src="/static/js/taskbar/taskbar-nav.js"></script>
-  <!-- <script src="/static/js/invest.js"></script> -->
+  <script type="module" src="/static/js/invest/invest-common.js"></script>
+
 </body>
 </html>
