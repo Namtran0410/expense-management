@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tổng quan</title>
+  <link rel="stylesheet" href="/static/css/style-sidebar.css">
+  <link rel="stylesheet" href="/static/css/style-report.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="layout">
+  
+  <!-- Sidebar -->
+  {% include 'sidebar.html' %}
+  
+  <!-- Main Content -->
+  <div class="container report-container">
+    <header>
+      <h1>Tổng quan tài chính</h1>
+      <p class="muted">Xem toàn cảnh tình hình chi tiêu & đầu tư</p>
+    </header>
+
+    <!-- Thống kê nhanh -->
+    <div class="cards-row">
+      <div class="card">
+        <h3>Tổng chi tiêu tháng</h3>
+        <div class="stat-value">0 VNĐ</div>
+      </div>
+      <div class="card">
+        <h3>Tổng vốn đầu tư</h3>
+        <div class="stat-value">0 VNĐ</div>
+      </div>
+      <div class="card">
+        <h3>Tổng giá trị hiện tại</h3>
+        <div class="stat-value">0 VNĐ</div>
+      </div>
+      <div class="card">
+        <h3>Lợi nhuận / Lỗ</h3>
+        <div class="stat-value">0 VNĐ</div>
+      </div>
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="charts-row">
+      <div class="card">
+        <h3>Phân bổ chi tiêu</h3>
+        <div class="chart-wrapper">
+          <canvas id="expenseChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Phân bổ đầu tư</h3>
+        <div class="chart-wrapper">
+          <canvas id="investmentChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Dòng tiền theo thời gian</h3>
+        <div class="chart-wrapper">
+          <canvas id="cashflowChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bảng tổng hợp -->
+    <div class="card" style="margin-top: 16px;">
+      <h3>Bảng tổng hợp</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Loại</th>
+              <th>Tên</th>
+              <th>Ngày</th>
+              <th>Số tiền</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chi tiêu</td>
+              <td>Mua sắm</td>
+              <td>01/08/2025</td>
+              <td>500,000 VNĐ</td>
+              <td>Quần áo</td>
+            </tr>
+            <tr>
+              <td>Đầu tư</td>
+              <td>Cổ phiếu VNM</td>
+              <td>05/08/2025</td>
+              <td>10,000,000 VNĐ</td>
+              <td>Giá vốn 75k</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/js/taskbar/taskbar-nav.js"></script>
+</body>
+</html>

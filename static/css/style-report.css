@@ -1,0 +1,128 @@
+:root {
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.container {
+  flex: 1;
+  max-width: 1400px;
+  margin: 28px auto;
+  padding-left: 0px; /* Đồng bộ khoảng cách trái */
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  margin-bottom: 18px;
+}
+header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Cards */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Charts */
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart-wrapper canvas {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius);
+  background-color: var(--card);
+  padding: 8px;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+  min-height: 240px;
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-wrap th,
+.table-wrap td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.table-wrap tr:hover {
+  background: #f9fafb;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .cards-row { grid-template-columns: repeat(2, 1fr); }
+  .charts-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .cards-row, .charts-row { grid-template-columns: 1fr; }
+}

@@ -378,6 +378,13 @@ def spendTrans():
     return Response(json.dumps(data, ensure_ascii= False), 
                     mimetype= 'application/json')
 
+@app.route('/tab-invest-nav', methods= ['GET', 'POST'])
+def navTabInvest():    
+    return render_template('tab-invest.html')
+
+@app.route('/tab-report-nav', methods= ['GET', 'POST'])
+def navTabReport():    
+    return render_template('tab-report.html')
 
 if __name__== '__main__':
     app.run(debug=True)

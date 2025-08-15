@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý đầu tư</title>
+  <link rel="stylesheet" href="/static/css/style-sidebar.css">
+  <link rel="stylesheet" href="/static/css/style-invest.css">
+
+</head>
+<body>
+  <div class="layout">
+    {% include 'sidebar.html' %}
+
+    <div class="container invest-container">
+      <header>
+        <h1>Quản lý đầu tư</h1>
+        <p class="muted">Ghi nhận • Theo dõi • Đánh giá hiệu quả</p>
+      </header>
+
+      <!-- Thống kê nhanh -->
+      <section class="cards-row">
+        <div class="card">
+          <h3>Tổng vốn đầu tư</h3>
+          <p class="stat-value" id="totalInvested">0 VNĐ</p>
+        </div>
+        <div class="card">
+          <h3>Tổng giá trị hiện tại</h3>
+          <p class="stat-value" id="totalCurrentValue">0 VNĐ</p>
+        </div>
+        <div class="card">
+          <h3>Lợi nhuận / Lỗ</h3>
+          <p class="stat-value" id="totalProfitLoss">0 VNĐ</p>
+        </div>
+      </section>
+
+      <!-- Form thêm khoản đầu tư -->
+      <section class="card">
+        <h3>Thêm khoản đầu tư</h3>
+        <form class="form-grid" id="form-investment" onsubmit="return false;">
+          <div class="field">
+            <label for="investment-type">Loại hình đầu tư</label>
+            <select id="investment-type" name="type" required>
+              <option value="">-- Chọn loại --</option>
+              <option value="real-estate">Nhà đất</option>
+              <option value="loan">Cho vay</option>
+              <option value="stock">Đầu cơ chứng khoán</option>
+              <option value="capital">Góp vốn</option>
+              <option value="gold">Mua vàng</option>
+              <option value="other">Khác</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="investment-name">Tên khoản đầu tư</label>
+            <input id="investment-name" name="name" placeholder="VD: Mua căn hộ Q7" required/>
+          </div>
+
+          <div class="field">
+            <label for="investment-start">Ngày bắt đầu</label>
+            <input id="investment-start" name="start_date" type="date" required/>
+          </div>
+
+          <div class="field">
+            <label for="investment-amount">Số tiền đầu tư (VNĐ)</label>
+            <input id="investment-amount" name="amount" type="number" min="0" step="1000" required/>
+          </div>
+
+          <div class="field">
+            <label for="investment-current">Giá trị hiện tại (VNĐ)</label>
+            <input id="investment-current" name="current_value" type="number" min="0" step="1000" required/>
+          </div>
+
+          <div class="field span-2">
+            <label for="investment-note">Ghi chú</label>
+            <input id="investment-note" name="note" placeholder="VD: Lãi suất 8%/năm, góp vốn 20%"/>
+          </div>
+
+          <div class="actions span-2">
+            <button type="button" id="addInvestment" class="btn-primary">+ Thêm</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Bảng danh sách đầu tư -->
+      <section class="card">
+        <h3>Danh sách khoản đầu tư</h3>
+        <div class="table-wrap">
+          <table id="investmentTable">
+            <thead>
+              <tr>
+                <th>Loại</th>
+                <th>Tên</th>
+                <th>Ngày bắt đầu</th>
+                <th>Vốn</th>
+                <th>Giá trị hiện tại</th>
+                <th>Lãi/Lỗ</th>
+                <th>Ghi chú</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Render bằng JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Biểu đồ -->
+      <section class="card">
+        <h3>Phân bổ danh mục đầu tư</h3>
+        <div class="chart-wrapper">
+          <canvas id="investmentChart"></canvas>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- JS riêng cho tab Đầu tư -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/js/taskbar/taskbar-nav.js"></script>
+  <!-- <script src="/static/js/invest.js"></script> -->
+</body>
+</html>
